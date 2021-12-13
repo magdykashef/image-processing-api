@@ -1,0 +1,42 @@
+{
+  "author": "Magdy Kashef",
+  "name": "image-processing-api",
+  "version": "1.0.0",
+  "description": "image processing api",
+  "main": "server.js",
+  "license": "ISC",
+  "scripts": {
+    "start": "npm run build && node ./dist/server.js",
+    "dev": "npm run lint && npm run prettier && nodemon ./src/server.ts",
+    "clean": "rm -rf ./src/assets/images/resized && rm -rf ./dist",
+    "copyAssets": "mkdir ./dist/assets && cp -R ./src/assets ./dist",
+    "build": "npm run clean && npx tsc && npm run copyAssets",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine",
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier --config .prettierrc.json 'src/**/*.ts' --write"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "^3.10.2",
+    "@types/node": "^16.11.12",
+    "@types/sharp": "^0.29.4",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jasmine": "^3.6.4",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "supertest": "^6.1.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "sharp": "^0.29.3"
+  }
+}
