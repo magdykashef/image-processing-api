@@ -9,5 +9,5 @@ var routes = express_1.default.Router();
 routes.get('/', function (req, res) {
     return res.status(200).send('main api endpoint');
 });
-routes.use('/image', image_route_1.default);
+routes.use('/images', image_route_1.default);
 exports.default = routes;

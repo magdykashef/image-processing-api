@@ -3,7 +3,7 @@ import fs from 'fs';
 import { promises as fsPromises } from 'fs';
 import { resizedImagePath, resize } from '../utils/image.util';
 
-// /api/image/?filename=palmtunnel&width=500&height=500
+// /api/images/?filename=palmtunnel&width=500&height=500
 const resizeImageController = async (
   req: express.Request,
   res: express.Response

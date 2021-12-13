@@ -43,14 +43,14 @@ var supertest_1 = __importDefault(require("supertest"));
 var __1 = __importDefault(require("../../.."));
 var request = (0, supertest_1.default)(__1.default);
 // full correct endpoint
-// /api/image/?filename=icelandwaterfall&width=500&height=500
-describe('Test image endpoint responses', function () {
+// /api/images/?filename=icelandwaterfall&width=500&height=500
+describe('Test images endpoint responses', function () {
     describe('Test file name query parameter', function () {
         it('Error message should be file name is missing', function (done) { return __awaiter(void 0, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image')];
+                    case 0: return [4 /*yield*/, request.get('/api/images')];
                     case 1:
                         response = _a.sent();
                         expect(response.body).toEqual({
@@ -65,7 +65,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image')];
+                    case 0: return [4 /*yield*/, request.get('/api/images')];
                     case 1:
                         response = _a.sent();
                         expect(response.status).toBe(400);
@@ -80,7 +80,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall')];
                     case 1:
                         response = _a.sent();
                         expect(response.body).toEqual({
@@ -95,7 +95,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall')];
                     case 1:
                         response = _a.sent();
                         expect(response.status).toBe(400);
@@ -108,7 +108,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall&width=zz')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall&width=zz')];
                     case 1:
                         response = _a.sent();
                         expect(response.body).toEqual({
@@ -123,7 +123,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall&width=zz')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall&width=zz')];
                     case 1:
                         response = _a.sent();
                         expect(response.status).toBe(400);
@@ -136,7 +136,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall&width=0')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall&width=0')];
                     case 1:
                         response = _a.sent();
                         expect(response.body).toEqual({
@@ -151,7 +151,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall&width=0')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall&width=0')];
                     case 1:
                         response = _a.sent();
                         expect(response.status).toBe(400);
@@ -166,7 +166,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall&width=500')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall&width=500')];
                     case 1:
                         response = _a.sent();
                         expect(response.body).toEqual({
@@ -181,7 +181,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall&width=500')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall&width=500')];
                     case 1:
                         response = _a.sent();
                         expect(response.status).toBe(400);
@@ -194,7 +194,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall&width=500&height=zz')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall&width=500&height=zz')];
                     case 1:
                         response = _a.sent();
                         expect(response.body).toEqual({
@@ -209,7 +209,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall&width=500&height=zz')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall&width=500&height=zz')];
                     case 1:
                         response = _a.sent();
                         expect(response.status).toBe(400);
@@ -222,7 +222,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall&width=500&height=0')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall&width=500&height=0')];
                     case 1:
                         response = _a.sent();
                         expect(response.body).toEqual({
@@ -237,7 +237,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall&width=500&height=0')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall&width=500&height=0')];
                     case 1:
                         response = _a.sent();
                         expect(response.status).toBe(400);
@@ -252,7 +252,7 @@ describe('Test image endpoint responses', function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, request.get('/api/image/?filename=icelandwaterfall&width=500&height=500')];
+                    case 0: return [4 /*yield*/, request.get('/api/images/?filename=icelandwaterfall&width=500&height=500')];
                     case 1:
                         response = _a.sent();
                         expect(response.status).toBe(200);

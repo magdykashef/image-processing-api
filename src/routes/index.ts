@@ -7,6 +7,6 @@ routes.get('/', (req: express.Request, res: express.Response) => {
   return res.status(200).send('main api endpoint');
 });
 
-routes.use('/image', image);
+routes.use('/images', image);
 
 export default routes;

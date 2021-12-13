@@ -42,7 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var fs_1 = __importDefault(require("fs"));
 var fs_2 = require("fs");
 var image_util_1 = require("../utils/image.util");
-// /api/image/?filename=palmtunnel&width=500&height=500
+// /api/images/?filename=palmtunnel&width=500&height=500
 var resizeImageController = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var filename_1, width_1, height_1, resizeResult, fileData, error_1;
     return __generator(this, function (_a) {
