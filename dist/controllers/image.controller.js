@@ -44,7 +44,7 @@ var fs_2 = require("fs");
 var image_util_1 = require("../utils/image.util");
 // /api/image/?filename=palmtunnel&width=500&height=500
 var resizeImageController = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var filename_1, width_1, height_1, resizedImageBuffer, fileData, error_1;
+    var filename_1, width_1, height_1, resizeResult, fileData, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -85,11 +85,11 @@ var resizeImageController = function (req, res) { return __awaiter(void 0, void 
                 }
                 return [4 /*yield*/, (0, image_util_1.resize)(filename_1, width_1, height_1)];
             case 1:
-                resizedImageBuffer = _a.sent();
+                resizeResult = _a.sent();
                 return [4 /*yield*/, fs_2.promises.open((0, image_util_1.resizedImagePath)(filename_1, width_1, height_1), 'w')];
             case 2:
                 fileData = _a.sent();
-                return [4 /*yield*/, fileData.write(resizedImageBuffer)];
+                return [4 /*yield*/, fileData.write(resizeResult)];
             case 3:
                 _a.sent();
                 return [4 /*yield*/, fileData.close().then(function () {
@@ -102,7 +102,6 @@ var resizeImageController = function (req, res) { return __awaiter(void 0, void 
                 return [3 /*break*/, 6];
             case 5:
                 error_1 = _a.sent();
-                console.log(error_1);
                 return [2 /*return*/, res.status(500).send({ error: "".concat(error_1) })];
             case 6: return [2 /*return*/];
         }

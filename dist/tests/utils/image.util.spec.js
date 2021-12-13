@@ -35,25 +35,29 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var supertest_1 = __importDefault(require("supertest"));
-var server_1 = __importDefault(require("../server"));
-var request = (0, supertest_1.default)(server_1.default);
-describe('Test main endpoint responses', function () {
-    it('status code should be 200', function (done) { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
+var image_util_1 = require("../../utils/image.util");
+describe('Test image util', function () {
+    var width = 500;
+    var height = 500;
+    it('Should resolve with the correct file name', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var correctFilename, promise;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/api')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    done();
-                    return [2 /*return*/];
-            }
+            correctFilename = 'icelandwaterfall';
+            promise = (0, image_util_1.resize)(correctFilename, width, height);
+            expectAsync(promise).toBeResolved();
+            done();
+            return [2 /*return*/];
+        });
+    }); });
+    it('Should reject with Error: Image could not be proccessed', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var wrongFilename, promise;
+        return __generator(this, function (_a) {
+            wrongFilename = 'dddsdsdsd';
+            promise = (0, image_util_1.resize)(wrongFilename, width, height);
+            expectAsync(promise).toBeRejectedWithError('Image could not be proccessed');
+            done();
+            return [2 /*return*/];
         });
     }); });
 });

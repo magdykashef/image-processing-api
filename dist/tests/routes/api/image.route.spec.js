@@ -40,8 +40,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var supertest_1 = __importDefault(require("supertest"));
-var server_1 = __importDefault(require("../../../server"));
-var request = (0, supertest_1.default)(server_1.default);
+var __1 = __importDefault(require("../../.."));
+var request = (0, supertest_1.default)(__1.default);
 // full correct endpoint
 // /api/image/?filename=icelandwaterfall&width=500&height=500
 describe('Test image endpoint responses', function () {

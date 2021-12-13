@@ -39,42 +39,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.resize = exports.resizedImagePath = exports.originalImagePath = void 0;
-var path_1 = __importDefault(require("path"));
-var fs_1 = __importDefault(require("fs"));
-var sharp_1 = __importDefault(require("sharp"));
-var originalImagePath = function (filename) {
-    return path_1.default.resolve("".concat(__dirname, "/../assets/images/full/").concat(filename, ".jpg"));
-};
-exports.originalImagePath = originalImagePath;
-var resizedImagePath = function (filename, width, height) {
-    return path_1.default.resolve("".concat(__dirname, "/../assets/images/resized/").concat(filename, "@").concat(width, "x").concat(height, ".jpg"));
-};
-exports.resizedImagePath = resizedImagePath;
-var resize = function (filename, width, height) { return __awaiter(void 0, void 0, void 0, function () {
-    var error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                // create resized folder if does not exist
-                if (!fs_1.default.existsSync(path_1.default.resolve("".concat(__dirname, "/../assets/images/resized")))) {
-                    fs_1.default.mkdirSync("".concat(__dirname, "/../assets/images/resized"), { recursive: true });
-                }
-                _a.label = 1;
-            case 1:
-                _a.trys.push([1, 5, , 6]);
-                if (!fs_1.default.existsSync(originalImagePath(filename))) return [3 /*break*/, 3];
-                return [4 /*yield*/, (0, sharp_1.default)(originalImagePath(filename))
-                        .resize({ width: width, height: height })
-                        .toBuffer()];
-            case 2: return [2 /*return*/, _a.sent()];
-            case 3: throw new Error('Image does not exist');
-            case 4: return [3 /*break*/, 6];
-            case 5:
-                error_1 = _a.sent();
-                throw new Error('Image could not be proccessed');
-            case 6: return [2 /*return*/];
-        }
-    });
-}); };
-exports.resize = resize;
+var supertest_1 = __importDefault(require("supertest"));
+var __1 = __importDefault(require(".."));
+var request = (0, supertest_1.default)(__1.default);
+describe('Test main endpoint responses', function () {
+    it('status code should be 200', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/api')];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(200);
+                    done();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});

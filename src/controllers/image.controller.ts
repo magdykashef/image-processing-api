@@ -1,7 +1,11 @@
 import express from 'express';
 import fs from 'fs';
 import { promises as fsPromises } from 'fs';
-import { resizedImagePath, resize } from '../utils/image.util';
+import {
+  resizedImagePath,
+  resize,
+  originalImagePath,
+} from '../utils/image.util';
 
 // /api/image/?filename=palmtunnel&width=500&height=500
 const resizeImageController = async (
@@ -47,20 +51,20 @@ const resizeImageController = async (
         .status(200)
         .sendFile(resizedImagePath(filename, width, height));
     }
+
     // resize and send image
-    const resizedImageBuffer = await resize(filename, width, height);
+    const resizeResult = await resize(filename, width, height);
     const fileData = await fsPromises.open(
       resizedImagePath(filename, width, height),
       'w'
     );
-    await fileData.write(resizedImageBuffer);
+    await fileData.write(resizeResult);
     await fileData.close().then(() => {
       return res
         .status(200)
         .sendFile(resizedImagePath(filename, width, height));
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).send({ error: `${error}` });
   }
 };
