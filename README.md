@@ -13,7 +13,7 @@
 The server will listen on port 3000:
 
 #### Endpoint to resize images
-http://localhost:3000/api/images
+http://localhost:3000/api/images/?filename=icelandwaterfall&width=500&height=500
 
 Expected query arguments are:
 - _filename_: Available filenames are:
