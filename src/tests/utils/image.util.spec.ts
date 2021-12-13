@@ -1,6 +1,4 @@
-import {
-  resize,
-} from '../../utils/image.util';
+import { resize } from '../../utils/image.util';
 
 describe('Test image util', () => {
   const width = 500;
@@ -22,4 +20,3 @@ describe('Test image util', () => {
     done();
   });
 });
-

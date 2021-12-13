@@ -1,11 +1,7 @@
 import express from 'express';
 import fs from 'fs';
 import { promises as fsPromises } from 'fs';
-import {
-  resizedImagePath,
-  resize,
-  originalImagePath,
-} from '../utils/image.util';
+import { resizedImagePath, resize } from '../utils/image.util';
 
 // /api/image/?filename=palmtunnel&width=500&height=500
 const resizeImageController = async (
