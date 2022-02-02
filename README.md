@@ -1,3 +1,7 @@
+# Image Processing API
+
+## An API that resizes and saves images to user specifications when visiting a URL.
+
 ### NPM Scripts
 - Install dependencies: ```npm install```
 - Start server from dist: ```npm start```
